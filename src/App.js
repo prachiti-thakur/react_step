@@ -6,8 +6,17 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-
 function App(){
+  return(
+    <div>
+      <Step/>
+      <Step/>
+    </div>
+  )
+}
+
+
+function Step(){
 // root component
 
 
@@ -22,17 +31,23 @@ const [isOpen,setIsOpen]=useState(true) //initailly aour state is open
 
 function handlePrevious(){
   // alert("previous") 
-  if (step >1)setStep(step-1)
+  // if (step >1)setStep(step-1)
+  if (step >1){
+    setStep((s)=>s-1)
+  }
  
 }
 function handleNext(){
   // alert("Next")
-  if(step < 3)setStep(step+1)
+  if(step < 3)
+    {setStep((s)=>s+1)
+
+    }
 }
 
 console.log(isOpen)
 
-return <>
+return <div>
 {/* closing btn  we if isOpen is true change to false and wise versa*/}
 <button className="close" onClick={()=>setIsOpen(!isOpen)}>
   &times;
@@ -60,7 +75,7 @@ return <>
           </div>
     )
   }
-</>
+</div>
 }
 
 export default App;
